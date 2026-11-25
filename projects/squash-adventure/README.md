@@ -1,12 +1,18 @@
-# 倭瓜射手大冒险
+# Squash Adventure
 
-横版自动射击跑酷，版本 1.0。角色自动前进并射击。玩家通过单跳、二连跳和贴地跑动应对不同地形，也能调整射击高度来抢到限时强化武器。
+An endless side-scrolling shooter and runner for Android and desktop Java. The character advances and fires automatically. One jump button controls obstacle clearance, firing height, and access to temporary weapons.
 
-![桌面版实机截图](运行截图与测试记录/02-gameplay.png)
+## Mechanics and Tuning
 
-- [游戏设计与实现](游戏设计与实现.md)
-- [测试报告](测试报告.md)
-- [下载 Android APK](倭瓜射手大冒险.apk)
-- [下载 Java 源码、桌面试玩及测试记录](https://github.com/gearsofwarhao-0703/game-design-portfolio/releases/download/portfolio-v1/squash-adventure.zip)
+| Mechanic | Design |
+| --- | --- |
+| Jump timing | Clear short spikes with a single jump, delay the second jump for long spikes, and stay low under hanging vines. |
+| Weapon pickups | Collect bubbles above the route to gain either a slow area-of-effect corn cannon or a rapid-fire pea gun. Each lasts 10 seconds. |
+| Scoring | Each enemy defeated is worth 100 points. The results screen also tracks distance, hazards cleared, and the cause of failure. |
+| Difficulty | The run starts at 300 virtual pixels per second, reaches 510 at one minute, and gradually approaches 900 in later play. Route spacing accounts for the speed expected when the player reaches each obstacle. |
 
-Android 试玩支持 Android 6.0 及以上。桌面试玩需要 Java 8 或更新版本，解压后双击 `电脑试玩.cmd`。
+The Android Canvas and desktop Java2D builds share a platform-independent Java model. The validation package covers jump rules, weapon timing, generated-route clearance, the speed curve, and Android input and pause behaviour. Android runtime checks were conducted on an Android 14 emulator.
+
+## Play and Inspect
+
+The version 1.0 package contains the Android APK, the desktop build, Java source, tests, and build instructions. Android requires version 6.0 or later. For the desktop demo, use Java 8 or later to run `SquashAdventure-desktop.jar`. [Download Squash Adventure](https://github.com/gearsofwarhao-0703/game-design-portfolio/releases/download/portfolio-v1/squash-adventure.zip)
